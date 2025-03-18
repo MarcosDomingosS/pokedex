@@ -17,7 +17,7 @@ class PokeApiServiceProvider extends ServiceProvider
          // Aqui você está dizendo ao Laravel para usar Client do Guzzle
         // quando alguém solicitar PokeApiService
         $this->app->singleton(PokeApiService::class, function ($app) {
-            return new PokeApiService(new Client());
+            return new PokeApiService($app->make(Client::class));
         });
     }
 

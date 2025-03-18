@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PokeController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PokeController::class, 'elaborate']);
 
-Route::get('/pokemon/{name}', [PokeController::class, 'show']);
+Route::get('/pokemon/{id}', [PokeController::class, 'show']);
